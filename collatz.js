@@ -12,7 +12,8 @@ function cc(x,n){
     }
 }
 
-for (let i = 1; i < 2000000; i++) {
+for (let i = 1; i < 200; i++) {
     console.log(i)
     cc(i,i)
 }
+cc(29,29)
