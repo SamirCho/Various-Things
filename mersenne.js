@@ -26,8 +26,18 @@ function isPrime(num){
     }
 }
 
-for (let i = 0; i < 30; i++) {
-    if(isPrime(i)){
-        console.log([i,2**(i-1)*(2**i-1)])
+function isMersenne(num){
+    if(isPrime(num)&&isPrime(2**num-1)){
+        return true
+    }else{
+        return false
     }
 }
+
+// for (let i = 0; i < 10000; i++) {
+//     if(isMersenne(i)){
+//         console.log(i)
+//     }
+// }
+
+console.log(isMersenne(127))

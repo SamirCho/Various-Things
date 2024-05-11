@@ -69,3 +69,5 @@ console.log(2**(i-1)*(2**i-1))
 //         console.log([i,2**(i-1)*(2**i-1),isHappy(2**(i-1)*(2**i-1))])
 //     }
 // }
+
+console.log(isHappy(8589869056))

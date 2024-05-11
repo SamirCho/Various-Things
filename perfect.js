@@ -72,4 +72,5 @@ function isPrime(num){
 //     }
 // }
 
-console.log(factors(2096128))
+let i=19 //31
+console.log([2**(i-1)*(2**i-1),isPerfect(2**(i-1)*(2**i-1)),isPrime(2**i-1)])
