@@ -1,8 +1,8 @@
-function summation(startTerm){
+function summation(startTerm,finalTerm){
     let sum=0
-    let x=5.56
-    for (let n = startTerm; n < 169; n++) {
-        sum+=(-1)**n*x**(2*n)/factorial(2*n)
+    let x=2
+    for (let n = startTerm; n < finalTerm; n++) {
+        sum+=1/n**3
     }
     return sum
 }
@@ -14,4 +14,4 @@ function factorial(x){
     return x*factorial(x-1)
 }
 
-console.log(summation(0))
+console.log(summation(1,1000))

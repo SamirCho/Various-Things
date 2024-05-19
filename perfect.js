@@ -57,7 +57,7 @@ function isPrime(num){
     if(isNaN(num)){
       return false
     }else{
-      for (let i = 2; i < Math.ceil(Math.sqrt(num))+1; i++) {
+      for (let i = 2; i <= Math.ceil(Math.sqrt(num)); i++) {
         if(num%i==0){
           return false
         }
