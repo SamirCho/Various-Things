@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{xcolor}
+\begin{document}
+\pagecolor {black}
+\color{white}
+\section{Today we will be solving this definite integral using Feynman's technique}
+
+\Huge{\[\int_{0}^{\frac{\pi}{2}}ln(1+4sin^2(x))dx\]}
+\\
+\huge{
+Define the following function
+\[I(a)=\int_{0}^{\frac{\pi}{2}}ln(1+asin^2(x))dx\]
+Note that our target integral is $I(4)$ and $I(0)=0$. To slightly simplify future steps, we will add the condition $a\ge0$.
+\\
+\\
+Differentiate both sides of the equation with respect to a and apply the Leibniz Rule
+\[I'(a)=\frac{d}{da}(\int_{0}^{\frac{\pi}{2}}ln(1+asin^2(x))dx)\]
+\[I'(a)=\int_{0}^{\frac{\pi}{2}}\frac{\partial}{\partial a}(ln(1+asin^2(x)))dx\]
+\[I'(a)=\int_{0}^{\frac{\pi}{2}}\frac{sin^2(x)}{1+asin^2(x)}dx\]
+Apply the King's Property and use the fact that $sin(\frac{\pi}{2}-x)=cos(x)$
+\[I'(a)=\int_{0}^{\frac{\pi}{2}}\frac{sin^2(\frac{\pi}{2}-x)}{1+asin^2(\frac{\pi}{2}-x)}dx\]
+\[I'(a)=\int_{0}^{\frac{\pi}{2}}\frac{cos^2(x)}{1+acos^2(x)}dx\]
+Divide all terms in the fraction by $cos^2(x)$
+\[I'(a)=\int_{0}^{\frac{\pi}{2}}\frac{1}{sec^2(x)+a}dx\]
+Use the trigonometric identity: $sec^2(x)=tan^2(x)+1$
+\[I'(a)=\int_{0}^{\frac{\pi}{2}}\frac{1}{tan^2(x)+1+a}dx\]
+Expand the fraction with $sec^2(x)$
+\[I'(a)=\int_{0}^{\frac{\pi}{2}}\frac{sec^2(x)}{(tan^2(x)+1+a)(sec^2(x))}dx\]
+\\
+\\
+\\
+Use the trigonometric identity: $sec^2(x)=tan^2(x)+1$
+\[I'(a)=\int_{0}^{\frac{\pi}{2}}\frac{sec^2(x)}{(tan^2(x)+1+a)(tan^2(x)+1)}dx\]
+let $u=tan(x)$\\$du=sec^2(x)dx$\\$u(0)=0$\\
+$\lim_{x\to(\frac{\pi}{2})^-} u(x)\to\infty$
+\[I'(a)=\int_{0}^{\infty}\frac{1}{(u^2+1+a)(u^2+1)}du\]
+Partial fraction decomposition
+\[I'(a)=\int_{0}^{\infty}\frac{-1/a}{u^2+1+a}du+\int_{0}^{\infty}\frac{1/a}{u^2+1}du\]
+\[I'(a)=\int_{0}^{\infty}\frac{-1/a}{u^2+(\sqrt{1+a})^2}du+\int_{0}^{\infty}\frac{1/a}{u^2+1^2}du\]
+\[I'(a)=\frac{-1}{a}\int_{0}^{\infty}\frac{1}{u^2+(\sqrt{1+a})^2}du+\frac{1}{a}\int_{0}^{\infty}\frac{1}{u^2+1^2}du\]
+\\
+\\
+Now we can integrate using the formula \[\int_{0}^{\infty}\frac{1}{u^2+b^2}du=\frac{\pi}{2b}\]
+The proof of this formula is left as an
+\\exercise for the viewer.
+\[I'(a)=\frac{-1}{a}\frac{\pi}{2\sqrt{1+a}}+\frac{1}{a}\frac{\pi}{2}\]
+\[I'(a)=\frac{\pi}{2a}-\frac{\pi}{2a\sqrt{1+a}}\]
+\[I'(a)=\frac{\pi}{2}(\frac{1}{a}-\frac{1}{a\sqrt{1+a}})\]
+Now we can integrate both sides of the equation with respect to $a$ to get $I(a)$ back. Since we are applying indefinite integrals to both sides, after this step the two sides of the equation may differ by a constant.
+\[I(a)-C=\frac{\pi}{2}(\int\frac{1}{a}da-\int\frac{1}{a\sqrt{1+a}}da)\]
+\[I(a)-C=\frac{\pi}{2}(ln(a)-\int\frac{1}{a\sqrt{1+a}}da)\]
+Off to the side
+\[B=\int\frac{1}{a\sqrt{1+a}}da\]
+let $v^2=1+a$
+\\$2vdv=da$
+\\$v=\sqrt{1+a}$
+\\$a=v^2-1$
+\[B=\int\frac{2v}{(v^2-1)v}dv\]
+\[B=\int\frac{2}{v^2-1}dv\]
+\[B=\int\frac{2}{(v-1)(v+1)}dv\]
+Partial fraction decomposition
+\[B=\int\frac{1}{v-1}dv+\int\frac{-1}{v+1}dv\]
+\[B=ln(v-1)-ln(v+1)\]
+\[B=ln(\sqrt{1+a}-1)-ln(\sqrt{1+a}+1)\]
+\[B=ln(\frac{\sqrt{1+a}-1}{\sqrt{1+a}+1})\]
+Expand the fraction with the radical \\conjugate of the numerator
+\[B=ln(\frac{(\sqrt{1+a}-1)(\sqrt{1+a}+1)}{(\sqrt{1+a}+1)(\sqrt{1+a}+1)})\]
+\[B=ln(\frac{1+a-1}{(\sqrt{1+a}+1)^2})\]
+\[B=ln(\frac{a}{(\sqrt{1+a}+1)^2})\]
+\\
+\[I(a)-C=\frac{\pi}{2}(ln(a)-ln(\frac{a}{(\sqrt{1+a}+1)^2}))\]
+\[I(a)-C=\frac{\pi}{2}(ln(a)+ln(\frac{(\sqrt{1+a}+1)^2}{a}))\]
+\[I(a)-C=\frac{\pi}{2}ln((\sqrt{1+a}+1)^2)\]
+\[I(a)=\pi ln(\sqrt{1+a}+1)+C\]
+Plugging in our condition from the start
+\[I(0)=0=\pi ln(2)+C\]
+\[\implies C=-\pi ln(2)\]
+\[I(a)=\pi ln(\sqrt{1+a}+1)-\pi ln(2)\]
+\[I(a)=\pi ln(\frac{1+\sqrt{1+a}}{2})\]\
+\[I(4)=\int_{0}^{\frac{\pi}{2}}ln(1+4sin^2(x))dx\]
+\[=\pi ln(\frac{1+\sqrt{5}}{2})\]
+\[=\pi ln(\varphi)\]
+}
+
+\Huge{\[\int_{0}^{\frac{\pi}{2}}ln(1+4sin^2(x))dx=\pi ln(\varphi)\]}
+\end{document}
