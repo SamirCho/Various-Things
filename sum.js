@@ -1,8 +1,8 @@
-function summation(startTerm,finalTerm){
+function summation(startTerm,finalTerm,p){
     let sum=0
     let x=2
     for (let n = startTerm; n < finalTerm; n++) {
-        sum+=1/n**3
+        sum+=1/n**p
     }
     return sum
 }
@@ -14,4 +14,6 @@ function factorial(x){
     return x*factorial(x-1)
 }
 
-console.log(summation(1,1000))
+for (let i = 2; i < 100; i++) {
+    console.log(summation(1,1000,i))
+}
