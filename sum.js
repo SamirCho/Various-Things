@@ -36,4 +36,6 @@ function choose(a,b){
     return gamma(a+1)/[gamma(b+1)*gamma(a-b+1)]
 }
 
-console.log(summation(0,130))
+for (let i = 0; i < 7; i++) {
+    console.log(choose(-1/2,i)*(-1)**i/(2*i+1))
+}
